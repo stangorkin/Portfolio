@@ -1,0 +1,264 @@
+<script lang="ts">
+	import ProjectCard from '$lib/components/ProjectCard.svelte';
+	import GitHubIcon from '$lib/components/icons/GitHubIcon.svelte';
+	import LinkedInIcon from '$lib/components/icons/LinkedInIcon.svelte';
+	import EmailIcon from '$lib/components/icons/EmailIcon.svelte';
+	import { projects } from '$lib/projects';
+</script>
+
+<svelte:head>
+	<title>Stan Gorkin — Developer Portfolio</title>
+	<meta name="description" content="Portfolio of Stan Gorkin, a self-taught software developer." />
+</svelte:head>
+
+<section id="about" class="hero">
+	<h1>Hi, I'm <span class="accent">Stan Gorkin</span></h1>
+	<p class="subtitle">Self-taught developer building real software with modern tools.</p>
+	<p class="bio">
+		I'm a developer who learns by building. My work spans AI-powered tooling, multi-agent
+		orchestration frameworks, and VS Code extensions. I use AI assistants as part of my workflow
+		and take ownership of every line that ships — designing architecture, writing tests, and
+		iterating through code review.
+	</p>
+	<div class="hero-links">
+		<a href="https://github.com/stangorkin" target="_blank" rel="noopener noreferrer">GitHub</a>
+		<a href="#projects">View Projects ↓</a>
+	</div>
+</section>
+
+<section id="skills" class="skills">
+	<h2>Skills & Tools</h2>
+	<div class="skill-groups">
+		<div class="skill-group">
+			<h3>Languages</h3>
+			<div class="skill-tags">
+				<span class="tag">C#</span>
+				<span class="tag">TypeScript</span>
+				<span class="tag">JavaScript</span>
+			</div>
+		</div>
+		<div class="skill-group">
+			<h3>Frameworks & Platforms</h3>
+			<div class="skill-tags">
+				<span class="tag">.NET</span>
+				<span class="tag">SvelteKit</span>
+				<span class="tag">Node.js</span>
+				<span class="tag">VS Code Extension API</span>
+			</div>
+		</div>
+		<div class="skill-group">
+			<h3>AI & APIs</h3>
+			<div class="skill-tags">
+				<span class="tag">OpenAI</span>
+				<span class="tag">Claude</span>
+				<span class="tag">Gemini</span>
+				<span class="tag">LLamaSharp</span>
+				<span class="tag">GraphQL</span>
+			</div>
+		</div>
+		<div class="skill-group">
+			<h3>Tools & Workflow</h3>
+			<div class="skill-tags">
+				<span class="tag">Git</span>
+				<span class="tag">GitHub Actions</span>
+				<span class="tag">Azure Key Vault</span>
+				<span class="tag">CI/CD</span>
+				<span class="tag">AI-Assisted Development</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="projects" class="projects">
+	<h2>Projects</h2>
+	<div class="project-grid">
+		{#each projects as project}
+			<ProjectCard {project} />
+		{/each}
+	</div>
+</section>
+
+<section id="contact" class="contact">
+	<h2>Get in Touch</h2>
+	<p>I'm looking for my first developer role. If you'd like to connect, reach out below.</p>
+	<div class="contact-links">
+		<a href="https://github.com/stangorkin" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+			<GitHubIcon size={28} />
+			<span>GitHub</span>
+		</a>
+		<a href="https://www.linkedin.com/in/stanislav-gorkin-834343141/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+			<LinkedInIcon size={28} />
+			<span>LinkedIn</span>
+		</a>
+		<a href="mailto:stangorkin@gmail.com" aria-label="Email">
+			<EmailIcon size={28} />
+			<span>stangorkin@gmail.com</span>
+		</a>
+	</div>
+</section>
+
+<style>
+	.hero {
+		padding: 6rem 0 4rem;
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: var(--color-heading);
+		margin-bottom: 0.5rem;
+	}
+
+	.accent {
+		color: var(--color-accent);
+	}
+
+	.subtitle {
+		font-size: 1.15rem;
+		color: var(--color-muted);
+		margin-bottom: 1.5rem;
+	}
+
+	.bio {
+		max-width: 640px;
+		line-height: 1.7;
+		margin-bottom: 1.5rem;
+	}
+
+	.hero-links {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.hero-links a {
+		padding: 0.6rem 1.2rem;
+		border-radius: 6px;
+		text-decoration: none;
+		font-weight: 500;
+		font-size: 0.9rem;
+		transition: background 0.2s;
+	}
+
+	.hero-links a:first-child {
+		background: var(--color-accent);
+		color: var(--color-bg);
+	}
+
+	.hero-links a:first-child:hover {
+		background: #7dd3fc;
+	}
+
+	.hero-links a:last-child {
+		border: 1px solid var(--color-border);
+		color: var(--color-text);
+	}
+
+	.hero-links a:last-child:hover {
+		border-color: var(--color-accent);
+		color: var(--color-accent);
+	}
+
+	.skills {
+		padding: 4rem 0;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.skills h2 {
+		font-size: 1.75rem;
+		color: var(--color-heading);
+		margin-bottom: 1.5rem;
+	}
+
+	.skill-groups {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5rem;
+	}
+
+	.skill-group h3 {
+		font-size: 0.9rem;
+		color: var(--color-muted);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		margin-bottom: 0.75rem;
+	}
+
+	.skill-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.skill-tags .tag {
+		background: var(--color-tag-bg);
+		color: var(--color-tag-text);
+		padding: 0.3rem 0.7rem;
+		border-radius: 4px;
+		font-size: 0.85rem;
+		font-weight: 500;
+	}
+
+	.projects {
+		padding: 4rem 0;
+	}
+
+	.projects h2 {
+		font-size: 1.75rem;
+		color: var(--color-heading);
+		margin-bottom: 2rem;
+	}
+
+	.project-grid {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.contact {
+		padding: 4rem 0 6rem;
+	}
+
+	.contact h2 {
+		font-size: 1.75rem;
+		color: var(--color-heading);
+		margin-bottom: 0.75rem;
+	}
+
+	.contact > p {
+		margin-bottom: 1.5rem;
+	}
+
+	.contact-links {
+		display: flex;
+		gap: 2rem;
+		flex-wrap: wrap;
+	}
+
+	.contact-links a {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--color-muted);
+		text-decoration: none;
+		font-size: 0.95rem;
+		transition: color 0.2s;
+	}
+
+	.contact-links a:hover {
+		color: var(--color-accent);
+	}
+
+	@media (max-width: 600px) {
+		h1 {
+			font-size: 1.75rem;
+		}
+
+		.hero {
+			padding: 3rem 0 2rem;
+		}
+
+		.skill-groups {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
