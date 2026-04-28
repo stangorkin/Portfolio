@@ -4,6 +4,44 @@
 	import LinkedInIcon from '$lib/components/icons/LinkedInIcon.svelte';
 	import EmailIcon from '$lib/components/icons/EmailIcon.svelte';
 	import { projects } from '$lib/projects';
+	import { onMount } from 'svelte';
+
+	const BIO = `I'm a developer who learns by building. My work spans AI-powered tooling, multi-agent orchestration frameworks, and VS Code extensions. I use AI assistants as part of my workflow and take ownership of every line that ships — designing architecture, writing tests, and iterating through code review.`;
+
+	const STYLES = [
+		{ id: 'genz', name: 'Gen Z', emoji: '💀' },
+		{ id: 'corporate', name: 'Corporate', emoji: '📊' },
+		{ id: 'eli5', name: 'ELI5', emoji: '🧒' },
+		{ id: 'demonicgoat', name: 'Demonic Goat', emoji: '🐐' },
+		{ id: 'caveman', name: 'Caveman', emoji: '🪨' }
+	];
+
+	let translatedBio = $state('');
+	let translating = $state(true);
+	let activeStyle = $state(STYLES[0]);
+
+	async function translateBio(style: typeof STYLES[0]) {
+		translating = true;
+		translatedBio = '';
+		activeStyle = style;
+		try {
+			const res = await fetch('https://lingobridges.com/api/translate', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ text: BIO, styleId: style.id, direction: 'to', modelPreference: 'balanced' })
+			});
+			const data = await res.json();
+			translatedBio = data.translation ?? BIO;
+		} catch {
+			translatedBio = BIO;
+		}
+		translating = false;
+	}
+
+	onMount(() => {
+		const random = STYLES[Math.floor(Math.random() * STYLES.length)];
+		translateBio(random);
+	});
 </script>
 
 <svelte:head>
@@ -14,12 +52,37 @@
 <section id="about" class="hero">
 	<h1>Hi, I'm <span class="accent">Stan Gorkin</span></h1>
 	<p class="subtitle">Self-taught developer building real software with modern tools.</p>
-	<p class="bio">
-		I'm a developer who learns by building. My work spans AI-powered tooling, multi-agent
-		orchestration frameworks, and VS Code extensions. I use AI assistants as part of my workflow
-		and take ownership of every line that ships — designing architecture, writing tests, and
-		iterating through code review.
-	</p>
+	<p class="bio">{BIO}</p>
+
+	<div class="bio-translator">
+		<div class="bio-translator-header">
+			<span class="bio-translator-label">
+				{#if translating}
+					<span class="bio-spinner"></span> Translating via <a href="https://lingobridges.com" target="_blank" rel="noopener noreferrer">LingoBridge</a>...
+				{:else}
+					{activeStyle.emoji} {activeStyle.name} translation via <a href="https://lingobridges.com" target="_blank" rel="noopener noreferrer">LingoBridge</a>
+				{/if}
+			</span>
+			<div class="bio-style-btns">
+				{#each STYLES as style}
+					<button
+						class="bio-style-btn"
+						class:active={activeStyle.id === style.id}
+						onclick={() => translateBio(style)}
+						disabled={translating}
+						title={style.name}
+					>{style.emoji}</button>
+				{/each}
+			</div>
+		</div>
+		<p class="bio-translated" class:loading={translating}>
+			{#if translating}
+				<span class="bio-placeholder">...</span>
+			{:else}
+				{translatedBio}
+			{/if}
+		</p>
+	</div>
 	<div class="hero-links">
 		<a href="https://github.com/stangorkin" target="_blank" rel="noopener noreferrer">GitHub</a>
 		<a href="#projects">View Projects ↓</a>
@@ -122,7 +185,104 @@
 	.bio {
 		max-width: 640px;
 		line-height: 1.7;
-		margin-bottom: 1.5rem;
+		margin-bottom: 1rem;
+		color: var(--color-muted);
+		font-size: 0.9rem;
+	}
+
+	.bio-translator {
+		max-width: 640px;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 10px;
+		padding: 1rem 1.25rem;
+		margin-bottom: 1.75rem;
+	}
+
+	.bio-translator-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 0.6rem;
+		gap: 0.75rem;
+	}
+
+	.bio-translator-label {
+		font-size: 0.75rem;
+		color: var(--color-muted);
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+	}
+
+	.bio-translator-label a {
+		color: var(--color-accent);
+		text-decoration: none;
+	}
+
+	.bio-translator-label a:hover {
+		text-decoration: underline;
+	}
+
+	.bio-style-btns {
+		display: flex;
+		gap: 0.25rem;
+	}
+
+	.bio-style-btn {
+		background: none;
+		border: 1px solid var(--color-border);
+		border-radius: 6px;
+		padding: 0.2rem 0.45rem;
+		font-size: 1rem;
+		cursor: pointer;
+		transition: border-color 0.15s, background 0.15s;
+		line-height: 1;
+	}
+
+	.bio-style-btn:hover:not(:disabled) {
+		border-color: var(--color-accent);
+		background: rgba(56, 189, 248, 0.08);
+	}
+
+	.bio-style-btn.active {
+		border-color: var(--color-accent);
+		background: rgba(56, 189, 248, 0.12);
+	}
+
+	.bio-style-btn:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	.bio-translated {
+		line-height: 1.7;
+		font-size: 0.95rem;
+		color: var(--color-text);
+		margin: 0;
+		min-height: 3rem;
+	}
+
+	.bio-translated.loading {
+		opacity: 0.4;
+	}
+
+	.bio-placeholder {
+		letter-spacing: 0.2em;
+	}
+
+	.bio-spinner {
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		border: 2px solid var(--color-border);
+		border-top-color: var(--color-accent);
+		border-radius: 50%;
+		animation: spin 0.7s linear infinite;
+	}
+
+	@keyframes spin {
+		to { transform: rotate(360deg); }
 	}
 
 	.hero-links {
