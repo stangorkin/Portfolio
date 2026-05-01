@@ -6,7 +6,7 @@
 	import { projects } from '$lib/projects';
 	import { onMount } from 'svelte';
 
-	const BIO = `I'm a developer who learns by building. My work spans AI-powered tooling, multi-agent orchestration frameworks, and VS Code extensions. I use AI assistants as part of my workflow and take ownership of every line that ships — designing architecture, writing tests, and iterating through code review.`;
+	const BIO = `I've been writing code since 2020, building projects across AI tooling, multi-agent orchestration frameworks, and VS Code extensions. I work with AI assistants as part of my development process and take full ownership of every line that ships — designing architecture, writing tests, and iterating through code review.`;
 
 	const STYLES = [
 		{ id: 'genz', name: 'Gen Z', emoji: '💀' },
@@ -46,12 +46,12 @@
 
 <svelte:head>
 	<title>Stan Gorkin — Developer Portfolio</title>
-	<meta name="description" content="Portfolio of Stan Gorkin, a self-taught software developer." />
+	<meta name="description" content="Portfolio of Stan Gorkin, a developer building real software since 2020." />
 </svelte:head>
 
 <section id="about" class="hero">
 	<h1>Hi, I'm <span class="accent">Stan Gorkin</span></h1>
-	<p class="subtitle">Self-taught developer building real software with modern tools.</p>
+	<p class="subtitle">Developer building real software since 2020.</p>
 	<p class="bio">{BIO}</p>
 
 	<div class="bio-translator">
@@ -208,7 +208,7 @@
 	}
 
 	.bio-translator-label {
-		font-size: 0.75rem;
+		font-size: 2.6rem;
 		color: var(--color-muted);
 		display: flex;
 		align-items: center;
@@ -233,8 +233,8 @@
 		background: none;
 		border: 1px solid var(--color-border);
 		border-radius: 6px;
-		padding: 0.2rem 0.45rem;
-		font-size: 1rem;
+		padding: 0.3rem 0.6rem;
+		font-size: 1.3rem;
 		cursor: pointer;
 		transition: border-color 0.15s, background 0.15s;
 		line-height: 1;
