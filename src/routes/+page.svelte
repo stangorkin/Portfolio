@@ -208,7 +208,7 @@
 	}
 
 	.bio-translator-label {
-		font-size: 2.6rem;
+		font-size: 1rem;
 		color: var(--color-muted);
 		display: flex;
 		align-items: center;
