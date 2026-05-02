@@ -51,6 +51,12 @@
 	<meta name="description" content="Portfolio of Stan Gorkin, a developer building real software since 2020." />
 </svelte:head>
 
+<div class="top-bar">
+	<a href="mailto:stangorkin@gmail.com">stangorkin@gmail.com</a>
+	<span class="top-bar-divider">|</span>
+	<a href="tel:+14252053085">+1 425 205 3085</a>
+</div>
+
 <section id="about" class="hero">
 	<h1>Hi, I'm <span class="accent">Stan Gorkin</span></h1>
 	<p class="subtitle">Developer building real software since 2020.</p>
@@ -159,10 +165,42 @@
 			<EmailIcon size={28} />
 			<span>stangorkin@gmail.com</span>
 		</a>
+		<a href="tel:+14252053085" aria-label="Phone">
+			<span>📞</span>
+			<span>+1 425 205 3085</span>
+		</a>
 	</div>
 </section>
 
 <style>
+	.top-bar {
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.5rem 2rem;
+		background: var(--color-surface, #0f172a);
+		border-bottom: 1px solid var(--color-border, #1e293b);
+		font-size: 0.85rem;
+	}
+
+	.top-bar a {
+		color: var(--color-muted);
+		text-decoration: none;
+		transition: color 0.2s;
+	}
+
+	.top-bar a:hover {
+		color: var(--color-accent);
+	}
+
+	.top-bar-divider {
+		color: var(--color-border, #1e293b);
+	}
+
 	.hero {
 		padding: 6rem 0 4rem;
 	}
