@@ -88,8 +88,6 @@
 	<div class="hero-links">
 		<a class="btn-primary" href="https://github.com/stangorkin" target="_blank" rel="noopener noreferrer">GitHub</a>
 		<a class="btn-secondary" href="#projects">View Projects ↓</a>
-		<a href="mailto:stangorkin@gmail.com">stangorkin@gmail.com</a>
-		<a href="tel:+14252053085">+1 425 205 3085</a>
 	</div>
 </section>
 
@@ -329,14 +327,6 @@
 
 	.hero-links .btn-secondary:hover {
 		border-color: var(--color-accent);
-		color: var(--color-accent);
-	}
-
-	.hero-links a:not(.btn-primary):not(.btn-secondary) {
-		color: var(--color-muted);
-	}
-
-	.hero-links a:not(.btn-primary):not(.btn-secondary):hover {
 		color: var(--color-accent);
 	}
 
