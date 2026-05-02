@@ -15,6 +15,10 @@
 	<nav>
 		<div class="nav-inner">
 			<a href="/" class="nav-brand">Stan Gorkin</a>
+			<div class="nav-contact">
+				<a href="mailto:stangorkin@gmail.com">stangorkin@gmail.com</a>
+				<a href="tel:+14252053085">+1 425 205 3085</a>
+			</div>
 			<div class="nav-links">
 				<a href="#about">About</a>
 				<a href="#skills">Skills</a>
@@ -82,10 +86,11 @@
 	.nav-inner {
 		max-width: 900px;
 		margin: 0 auto;
-		padding: 1rem 1.5rem;
+		padding: 0.75rem 1.5rem;
 		display: flex;
-		justify-content: space-between;
+		flex-wrap: wrap;
 		align-items: center;
+		gap: 0.4rem 1.25rem;
 	}
 
 	.nav-brand {
@@ -95,7 +100,25 @@
 		text-decoration: none;
 	}
 
+	.nav-contact {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+	}
+
+	.nav-contact a {
+		color: var(--color-muted);
+		text-decoration: none;
+		font-size: 0.8rem;
+		transition: color 0.2s;
+	}
+
+	.nav-contact a:hover {
+		color: var(--color-accent);
+	}
+
 	.nav-links {
+		margin-left: auto;
 		display: flex;
 		gap: 1.5rem;
 	}
@@ -110,6 +133,14 @@
 
 	.nav-links a:hover {
 		color: var(--color-accent);
+	}
+
+	@media (max-width: 600px) {
+		.nav-contact {
+			order: 3;
+			flex-basis: 100%;
+			padding-bottom: 0.25rem;
+		}
 	}
 
 	main {
