@@ -207,6 +207,7 @@
 		align-items: center;
 		margin-bottom: 0.6rem;
 		gap: 0.75rem;
+		flex-wrap: wrap;
 	}
 
 	.bio-translator-label {
