@@ -86,10 +86,8 @@
 		</p>
 	</div>
 	<div class="hero-links">
-		<a href="https://github.com/stangorkin" target="_blank" rel="noopener noreferrer">GitHub</a>
-		<a href="#projects">View Projects ↓</a>
-	</div>
-	<div class="hero-contact">
+		<a class="btn-primary" href="https://github.com/stangorkin" target="_blank" rel="noopener noreferrer">GitHub</a>
+		<a class="btn-secondary" href="#projects">View Projects ↓</a>
 		<a href="mailto:stangorkin@gmail.com">stangorkin@gmail.com</a>
 		<a href="tel:+14252053085">+1 425 205 3085</a>
 	</div>
@@ -298,52 +296,47 @@
 
 	.hero-links {
 		display: flex;
-		gap: 1rem;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.75rem 1rem;
 	}
 
 	.hero-links a {
-		padding: 0.6rem 1.2rem;
-		border-radius: 6px;
 		text-decoration: none;
-		font-weight: 500;
 		font-size: 0.9rem;
-		transition: background 0.2s;
+		transition: background 0.2s, color 0.2s, border-color 0.2s;
 	}
 
-	.hero-links a:first-child {
+	.hero-links .btn-primary {
+		padding: 0.6rem 1.2rem;
+		border-radius: 6px;
+		font-weight: 500;
 		background: var(--color-accent);
 		color: var(--color-bg);
 	}
 
-	.hero-links a:first-child:hover {
+	.hero-links .btn-primary:hover {
 		background: #7dd3fc;
 	}
 
-	.hero-links a:last-child {
+	.hero-links .btn-secondary {
+		padding: 0.6rem 1.2rem;
+		border-radius: 6px;
+		font-weight: 500;
 		border: 1px solid var(--color-border);
 		color: var(--color-text);
 	}
 
-	.hero-links a:last-child:hover {
+	.hero-links .btn-secondary:hover {
 		border-color: var(--color-accent);
 		color: var(--color-accent);
 	}
 
-	.hero-contact {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem 1.5rem;
-		margin-top: 0.75rem;
-	}
-
-	.hero-contact a {
+	.hero-links a:not(.btn-primary):not(.btn-secondary) {
 		color: var(--color-muted);
-		text-decoration: none;
-		font-size: 0.9rem;
-		transition: color 0.2s;
 	}
 
-	.hero-contact a:hover {
+	.hero-links a:not(.btn-primary):not(.btn-secondary):hover {
 		color: var(--color-accent);
 	}
 
