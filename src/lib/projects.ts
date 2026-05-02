@@ -16,7 +16,7 @@ export const projects: Project[] = [
 		name: 'LingoBridge',
 		description: 'Style translator web app powered by Cloudflare Workers AI.',
 		longDescription:
-			'A playful translator that rewrites text into different tones like Gen Z slang, Corporate lingo, ELI5, and a comedic Demonic Goat mode. Built with SvelteKit and a Workers AI backend endpoint, with bidirectional translation and copy-ready output.',
+			'A fun translator that rewrites text into different tones like Gen Z slang, Corporate lingo, ELI5, a comedic Demonic Goat, a Caveman, or allowing the user to create their own style. Built with SvelteKit and a Workers AI backend endpoint, with bidirectional translation and copy-ready output.',
 		tech: ['SvelteKit', 'TypeScript', 'Cloudflare Workers AI', 'Wrangler'],
 		role: 'Solo creator',
 		github: 'https://github.com/stangorkin/LingoBridge',

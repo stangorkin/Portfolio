@@ -6,7 +6,9 @@
 	import { projects } from '$lib/projects';
 	import { onMount } from 'svelte';
 
-	const BIO = `I've been writing code since 2020, building projects across AI tooling, multi-agent orchestration frameworks, and VS Code extensions. I work with AI assistants as part of my development process and take full ownership of every line that ships — designing architecture, writing tests, and iterating through code review.`;
+	const BIO = `I've been writing code since 2020, building projects across AI tooling,a multi-agent orchestration frmeworks,
+	 and VS Code extensions. I work with AI assistants as part of my development process and take full ownership of every line that ships,
+	 designing architecture, writing tests, and iterating through code review.`;
 
 	const STYLES = [
 		{ id: 'genz', name: 'Gen Z', emoji: '💀' },
