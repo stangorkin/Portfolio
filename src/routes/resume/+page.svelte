@@ -196,14 +196,7 @@
 </div>
 
 <style>
-	/* Reset nav/layout for this page — white background */
-	:global(body) {
-		background: #fff !important;
-		color: #111 !important;
-	}
-
 	.resume-page {
-		background: #fff;
 		min-height: 100vh;
 	}
 
@@ -211,9 +204,7 @@
 		max-width: 800px;
 		margin: 0 auto;
 		padding: 2.5rem 2rem 4rem;
-		font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
 		font-size: 0.95rem;
-		color: #111;
 		line-height: 1.5;
 	}
 
@@ -221,14 +212,14 @@
 	.r-header {
 		text-align: center;
 		margin-bottom: 1.5rem;
-		border-bottom: 2px solid #1f4980;
+		border-bottom: 2px solid var(--color-accent);
 		padding-bottom: 1rem;
 	}
 
 	.r-header h1 {
 		font-size: 2rem;
 		font-weight: 700;
-		color: #1f4980;
+		color: var(--color-heading);
 		margin: 0 0 0.4rem;
 	}
 
@@ -238,11 +229,11 @@
 		justify-content: center;
 		gap: 0.25rem 0.5rem;
 		font-size: 0.85rem;
-		color: #444;
+		color: var(--color-muted);
 	}
 
 	.r-contact a {
-		color: #1f4980;
+		color: var(--color-accent);
 		text-decoration: none;
 	}
 
@@ -255,15 +246,16 @@
 	.btn-download {
 		display: inline-block;
 		padding: 0.4rem 1rem;
-		background: #1f4980;
-		color: #fff !important;
+		background: var(--color-accent);
+		color: var(--color-bg) !important;
 		border-radius: 5px;
 		font-size: 0.85rem;
+		font-weight: 500;
 		text-decoration: none !important;
 		transition: background 0.2s;
 	}
 
-	.btn-download:hover { background: #2e6ab5; }
+	.btn-download:hover { background: #7dd3fc; }
 
 	/* SECTION HEADINGS */
 	.r-section-title {
@@ -271,10 +263,10 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.06em;
-		color: #1f4980;
-		border-bottom: 1.5px solid #1f4980;
+		color: var(--color-accent);
+		border-bottom: 1.5px solid var(--color-border);
 		padding-bottom: 0.2rem;
-		margin: 1.25rem 0 0.6rem;
+		margin: 1.5rem 0 0.75rem;
 	}
 
 	/* SKILLS */
@@ -283,19 +275,19 @@
 	.r-skill-row {
 		display: flex;
 		gap: 0.5rem;
-		margin-bottom: 0.2rem;
+		margin-bottom: 0.25rem;
 	}
 
 	.r-skill-row dt {
 		font-weight: 600;
 		min-width: 180px;
-		color: #222;
+		color: var(--color-text);
 	}
 
-	.r-skill-row dd { margin: 0; color: #333; }
+	.r-skill-row dd { margin: 0; color: var(--color-muted); }
 
 	/* ENTRIES */
-	.r-entry { margin-bottom: 0.9rem; }
+	.r-entry { margin-bottom: 1rem; }
 
 	.r-entry-header {
 		display: flex;
@@ -308,17 +300,18 @@
 	.r-entry-title {
 		font-weight: 700;
 		font-size: 1rem;
+		color: var(--color-heading);
 	}
 
 	.r-entry-sub {
-		color: #555;
+		color: var(--color-muted);
 		font-size: 0.88rem;
 		flex: 1;
 	}
 
 	.r-entry-date {
 		font-style: italic;
-		color: #666;
+		color: var(--color-muted);
 		font-size: 0.88rem;
 		white-space: nowrap;
 		margin-left: auto;
@@ -326,19 +319,19 @@
 
 	.r-entry-role {
 		font-style: italic;
-		color: #333;
+		color: var(--color-text);
 		font-size: 0.9rem;
 		margin-bottom: 0.25rem;
 	}
 
 	.r-entry-urls {
 		font-size: 0.82rem;
-		color: #555;
+		color: var(--color-muted);
 		margin-bottom: 0.25rem;
 	}
 
 	.r-entry-urls a {
-		color: #1f4980;
+		color: var(--color-accent);
 		text-decoration: none;
 	}
 
@@ -352,7 +345,7 @@
 	li {
 		margin-bottom: 0.2rem;
 		font-size: 0.9rem;
-		color: #222;
+		color: var(--color-muted);
 	}
 
 	.r-certs {
@@ -361,13 +354,20 @@
 
 	section > p {
 		margin: 0;
-		color: #222;
+		color: var(--color-muted);
 	}
 
-	/* Print */
+	/* Print — force white on paper */
 	@media print {
 		.no-print { display: none; }
 		:global(nav), :global(footer) { display: none !important; }
 		.resume { padding: 0; }
+		.resume, li, .r-entry-sub, .r-entry-date, .r-entry-role, .r-entry-urls,
+		.r-skill-row dd, section > p {
+			color: #111 !important;
+		}
+		.r-header h1, .r-entry-title { color: #000 !important; }
+		.r-section-title { color: #1f4980 !important; border-bottom-color: #1f4980 !important; }
+		.r-contact a, .r-entry-urls a { color: #1f4980 !important; }
 	}
 </style>
