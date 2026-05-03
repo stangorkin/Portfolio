@@ -24,6 +24,21 @@
 				<a href="#skills">Skills</a>
 				<a href="#projects">Projects</a>
 				<a href="#contact">Contact</a>
+				<a href="/resume">Resume</a>
+				<a
+					href="/Stan_Gorkin_Dev_Resume.docx"
+					download
+					class="nav-docx"
+					title="Download resume as Word document"
+					aria-label="Download resume as Word document"
+				>
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						<polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						<line x1="12" y1="12" x2="12" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+						<polyline points="9 15 12 18 15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</a>
 			</div>
 		</div>
 	</nav>
@@ -133,6 +148,20 @@
 
 	.nav-links a:hover {
 		color: var(--color-accent);
+	}
+
+	.nav-links .nav-docx {
+		display: flex;
+		align-items: center;
+		padding: 0.15rem 0.3rem;
+		border: 1px solid var(--color-border);
+		border-radius: 4px;
+		line-height: 1;
+		transition: color 0.2s, border-color 0.2s;
+	}
+
+	.nav-links .nav-docx:hover {
+		border-color: var(--color-accent);
 	}
 
 	@media (max-width: 600px) {
