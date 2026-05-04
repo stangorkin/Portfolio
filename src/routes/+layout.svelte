@@ -135,7 +135,8 @@
 	.nav-links {
 		margin-left: auto;
 		display: flex;
-		gap: 1.5rem;
+		flex-wrap: wrap;
+		gap: 0.5rem 1.5rem;
 	}
 
 	.nav-links a {
@@ -169,6 +170,11 @@
 			order: 3;
 			flex-basis: 100%;
 			padding-bottom: 0.25rem;
+		}
+
+		.nav-links {
+			gap: 0.5rem 1rem;
+			font-size: 0.8rem;
 		}
 	}
 
