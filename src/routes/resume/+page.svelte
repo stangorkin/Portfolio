@@ -115,7 +115,7 @@
 
 			<div class="r-entry">
 				<div class="r-entry-header">
-					<span class="r-entry-title">Bachus</span>
+					<span class="r-entry-title">Bacchus</span>
 					<span class="r-entry-sub">Contributor — 11 commits · TypeScript, Svelte, VS Code Extension API</span>
 					<span class="r-entry-date">2025 – Present</span>
 				</div>

@@ -67,7 +67,7 @@ export const projects: Project[] = [
 			'Used AI agents for scaffolding and code generation, then personally reviewed, tested, and refined all contributions through PR review cycles.'
 	},
 	{
-		name: 'Bachus',
+		name: 'Bacchus',
 		description: 'VS Code extension and web app for dependency visualization built with Svelte.',
 		longDescription:
 			'A VS Code extension and web application for visualizing and managing project dependencies as an interactive graph. Built with TypeScript and Svelte, featuring inline editing, multi-provider LLM support, and CI/CD automation.',
